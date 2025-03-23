@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Celeana ❤️‍🩹</title>
     <style>
+        /* General Page Styles */
         body {
             background: linear-gradient(135deg, #ff4d94, #ffffff);
             text-align: center;
@@ -12,29 +13,41 @@
             color: black;
             overflow: hidden;
             position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
             font-size: 2.5em;
             margin-top: 20px;
+            color: #333;
+            animation: fadeIn 2s ease-in-out;
         }
 
         p {
             font-size: 1.2em;
             max-width: 600px;
-            margin: auto;
+            margin: 20px auto;
+            padding: 0 20px;
+            color: #555;
+            animation: fadeIn 3s ease-in-out;
         }
 
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Gallery Styles */
         .gallery {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
             margin-top: 20px;
-            flex-wrap: nowrap; /* يخلي الصور بخط واحد */
-            overflow-x: auto; /* يسمح بالتمرير إذا كانت الصور أكبر من الشاشة */
+            flex-wrap: wrap;
             padding: 20px;
-            white-space: nowrap;
+            overflow-x: auto;
         }
 
         .gallery img {
@@ -42,14 +55,15 @@
             height: auto;
             border-radius: 15px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s;
+            transition: transform 0.3s, filter 0.3s;
         }
 
         .gallery img:hover {
             transform: scale(1.1);
+            filter: brightness(1.2);
         }
 
-        /* تأثير القلوب المتحركة */
+        /* Floating Hearts Animation */
         .hearts {
             position: fixed;
             top: 0;
@@ -80,28 +94,139 @@
                 opacity: 0;
             }
         }
+
+        /* 🔥 Loading Screen Styles 🔥 */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff4d94;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            z-index: 1000;
+            transition: opacity 1s ease-out;
+        }
+
+        .loader {
+            border: 5px solid white;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-top: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide main content initially */
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Creative Typing Effect */
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 0.15em solid #ff4d94;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ff4d94; }
+        }
+
+        /* Creative Background Shapes */
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 77, 148, 0.1);
+            border: 2px solid rgba(255, 77, 148, 0.3);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <h1>For Celeana ❤️‍🩹</h1>
-    <p>Distance means nothing when someone means everything. No matter how many kilometers separate us, my love for you will never fade.</p>
 
-    <div class="gallery">
-        <img src="https://i.postimg.cc/8zhsqZRm/IMG-20250319-143926-537.jpg">
-        <img src="https://i.postimg.cc/hGchgVMW/received-903341663717600.jpg">
-        <img src="https://i.postimg.cc/FH97XjTt/Screenshot-20250323-114831-Instagram.jpg">
-        <img src="https://i.postimg.cc/xd88c9rt/IMG-20250323-114708-267.jpg">
-        <img src="https://i.postimg.cc/x1tqfcZX/IMG-20250323-114604-498.jpg">
-        <img src="https://i.postimg.cc/h4rsq0rg/talal1.jpg">
+    <!-- 🔥 LOADING SCREEN 🔥 -->
+    <div id="loading-screen">
+        Loading...
+        <div class="loader"></div>
     </div>
 
-    <audio autoplay loop>
-        <source src="your-audio-file.mp3" type="audio/mpeg">
-    </audio>
+    <!-- MAIN CONTENT -->
+    <div id="main-content">
+        <h1><span class="typing-effect">For Celeana ❤️‍🩹</span></h1>
+        <p>Distance means nothing when someone means everything. No matter how many kilometers separate us, my love for you will never fade.</p>
 
-    <div class="hearts" id="hearts"></div>
+        <div class="gallery">
+            <img src="https://i.postimg.cc/8zhsqZRm/IMG-20250319-143926-537.jpg" alt="Celeana Image 1">
+            <img src="https://i.postimg.cc/hGchgVMW/received-903341663717600.jpg" alt="Celeana Image 2">
+            <img src="https://i.postimg.cc/FH97XjTt/Screenshot-20250323-114831-Instagram.jpg" alt="Celeana Image 3">
+            <img src="https://i.postimg.cc/xd88c9rt/IMG-20250323-114708-267.jpg" alt="Celeana Image 4">
+            <img src="https://i.postimg.cc/x1tqfcZX/IMG-20250323-114604-498.jpg" alt="Celeana Image 5">
+            <img src="https://i.postimg.cc/h4rsq0rg/talal1.jpg" alt="Celeana Image 6">
+        </div>
+
+        <!-- Floating Hearts -->
+        <div class="hearts" id="hearts"></div>
+
+        <!-- Creative Background Shapes -->
+        <div class="background-shapes">
+            <div class="shape" style="width: 100px; height: 100px; top: 10%; left: 20%;"></div>
+            <div class="shape" style="width: 150px; height: 150px; top: 30%; left: 70%;"></div>
+            <div class="shape" style="width: 80px; height: 80px; top: 60%; left: 10%;"></div>
+            <div class="shape" style="width: 120px; height: 120px; top: 80%; left: 50%;"></div>
+        </div>
+    </div>
 
     <script>
+        // 🔥 LOADING SCREEN FUNCTION 🔥
+        setTimeout(() => {
+            document.getElementById("loading-screen").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.display = "none";
+                document.getElementById("main-content").style.opacity = "1";
+            }, 1000);
+        }, 3000);
+
+        // 🔥 FLOATING HEARTS FUNCTION 🔥
         document.addEventListener("DOMContentLoaded", () => {
             const heartsContainer = document.getElementById("hearts");
 
@@ -110,7 +235,7 @@
                 heart.classList.add("heart");
                 heart.innerHTML = "❤️‍🩹";
                 heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = (3 + Math.random() * 2) + "s"; // بين 3 و 5 ثواني
+                heart.style.animationDuration = (3 + Math.random() * 2) + "s"; // 3 to 5 seconds
                 heartsContainer.appendChild(heart);
 
                 setTimeout(() => {
@@ -118,8 +243,9 @@
                 }, 5000);
             }
 
-            setInterval(createHeart, 500); // كل نصف ثانية يضيف قلب جديد
+            setInterval(createHeart, 500);
         });
     </script>
+
 </body>
 </html>
