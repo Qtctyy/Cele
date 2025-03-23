@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Celeana ❤️‍🩹</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff4d94, #ffffff);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: black;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: nowrap; /* يخلي الصور بخط واحد */
+            overflow-x: auto; /* يسمح بالتمرير إذا كانت الصور أكبر من الشاشة */
+            padding: 20px;
+            white-space: nowrap;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* تأثير القلوب المتحركة */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            animation: floatUp 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>For Celeana ❤️‍🩹</h1>
+    <p>Distance means nothing when someone means everything. No matter how many kilometers separate us, my love for you will never fade.</p>
+
+    <div class="gallery">
+        <img src="https://i.postimg.cc/8zhsqZRm/IMG-20250319-143926-537.jpg">
+        <img src="https://i.postimg.cc/hGchgVMW/received-903341663717600.jpg">
+        <img src="https://i.postimg.cc/FH97XjTt/Screenshot-20250323-114831-Instagram.jpg">
+        <img src="https://i.postimg.cc/xd88c9rt/IMG-20250323-114708-267.jpg">
+        <img src="https://i.postimg.cc/x1tqfcZX/IMG-20250323-114604-498.jpg">
+        <img src="https://i.postimg.cc/h4rsq0rg/talal1.jpg">
+    </div>
+
+    <audio autoplay loop>
+        <source src="your-audio-file.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const heartsContainer = document.getElementById("hearts");
+
+            function createHeart() {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️‍🩹";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (3 + Math.random() * 2) + "s"; // بين 3 و 5 ثواني
+                heartsContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setInterval(createHeart, 500); // كل نصف ثانية يضيف قلب جديد
+        });
+    </script>
+</body>
+</html>
